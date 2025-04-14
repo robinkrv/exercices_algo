@@ -14,7 +14,8 @@ public class Main {
         //NiveauUn.checkVowelConsonant();
         //NiveauUn.doYouHaveEnuff();
         //NiveauUn.calculTauxParticipation();
-        NiveauUn.subscribersCount(276,1.04);
+        //NiveauUn.subscribersCount(276,1.04);
+        NiveauUn.sommeNb();
 
 
 
