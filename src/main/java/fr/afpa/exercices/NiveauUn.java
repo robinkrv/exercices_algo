@@ -184,10 +184,29 @@ public class NiveauUn {
             System.out.println("Fin du programme.");
         }
 
-        public static int calculAbonnés() {
+        public static void calculAbonnés() {
+
         int nbAbonnés = 2500;
-        return nbAbonnés;
+        int month = 0;
+
+        while(month < 24){
+            nbAbonnés *= 1.05;
+            month += 1;
+        }
+
+            int result =  (int) Math.round(nbAbonnés);
+            System.out.println("Le nombre d'abonnés est de : " + nbAbonnés);
     }
+
+        public static int subscribersCount(int nbSbscribrs, double growth) {
+
+        for (int mois = 0; mois <24; mois++) {
+            nbSbscribrs *= growth;
+        }
+        int result = (int) Math.round(nbSbscribrs);
+            System.out.println("Votre nombre d'abonnés sera : " + nbSbscribrs);
+        return nbSbscribrs;
+        }
     }
 
 
