@@ -204,8 +204,21 @@ public class NiveauUn {
             nbSbscribrs *= growth;
         }
         int result = (int) Math.round(nbSbscribrs);
-            System.out.println("Votre nombre d'abonnés sera : " + nbSbscribrs);
+            System.out.println("Votre nombre d'abonnés sera : " + result);
         return nbSbscribrs;
+        }
+
+        public static void sommeNb() {
+
+        Scanner scanner = new Scanner(System.in);
+
+            System.out.println("Entrez un nombre : ");
+            int nbFinal = scanner.nextInt();
+            int somme = 0;
+            for (int i = 0; i < nbFinal; i++) {
+                somme += i;
+            }
+            System.out.println(somme);
         }
     }
 
