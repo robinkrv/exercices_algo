@@ -17,7 +17,8 @@ public class Main {
         //NiveauUn.subscribersCount(276,1.04);
         //NiveauUn.sommeNb();
         //NiveauUn.fizzBuzzing();
-        NiveauUn.calculFactoriel(18);
+        //NiveauUn.calculFactoriel(18);
+        //NiveauUn.tableauReel();
 
 
 

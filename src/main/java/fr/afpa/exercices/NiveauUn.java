@@ -2,6 +2,7 @@ package fr.afpa.exercices;
 
 import java.time.Year;
 import java.time.YearMonth;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -251,6 +252,12 @@ public class NiveauUn {
             }
             System.out.println(f);
             return f;
+        }
+
+        public static void tableauReel() {
+
+        double[] array = {12.2, 11.3, 4.4, 2.0};
+            System.out.println(Arrays.toString(array));
         }
     }
 
