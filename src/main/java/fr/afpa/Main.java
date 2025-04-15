@@ -16,7 +16,8 @@ public class Main {
         //NiveauUn.calculTauxParticipation();
         //NiveauUn.subscribersCount(276,1.04);
         //NiveauUn.sommeNb();
-        NiveauUn.fizzBuzzing();
+        //NiveauUn.fizzBuzzing();
+        NiveauUn.calculFactoriel(18);
 
 
 
