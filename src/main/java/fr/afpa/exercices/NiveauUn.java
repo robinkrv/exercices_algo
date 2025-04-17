@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class NiveauUn {
 
+    // ✅
     public static boolean isAdult(int birthYear) {
         int thisYear = Year.now().getValue();
         int age = thisYear - birthYear;
@@ -39,8 +40,16 @@ public class NiveauUn {
             }
 
         }
+
+        // TODO fermer le scanner pour libérer la ressource
+        // ne pas fermer le scanner peut mener à des fuites mémoires et des ressources innaccessibles
+        // plus d'informations ici : https://www.alias-i.com/closing-scanner-in-java-best-practices-and-examples/
     }
 
+    // TODO lorsque nous utilisons des noms tels que "is..." nous nous attendons à obtenir un booléen
+    // c'est, par exemple, le nom typiquement utilisé pour un "flag" (exemple : "isAvailabe", "isOver")
+    // y aurait-il un nom plus pertinent ?
+    // Conseil : utiliser des verbes pour les noms des fonctions
     public static void isMinMax(int var1, int var2, int var3) {
 
         int min;
@@ -51,6 +60,8 @@ public class NiveauUn {
             return;
         }
 
+        // TODO serait-il possible d'imaginer une solution avec moins d'opérateurs de comparaison ?
+        // indice : tu peux initialiser le max avec une des valeurs (mettons var1) et plutôt utiliser cette variable pour comparaison
         if (var1 >= var2 && var1 >= var3) {
             max = var1;
         } else if (var2 >= var1 && var2 >= var3) {
@@ -71,6 +82,7 @@ public class NiveauUn {
     }
 
     public static void checkMinMax() {
+        // TODO scanner à fermer en fin de fonction
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Entrez un premier nombre : ");
@@ -95,11 +107,12 @@ public class NiveauUn {
         if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'y') {
             System.out.println("Votre lettre est une voyelle");
         } else {
-            System.out.println("Votre lettre est une console");
+            System.out.println("Votre lettre est une console"); // TODO console -> consonne
         }
     }
 
     public static void checkVowelConsonant() {
+        // TODO fermeture scanner
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Entrez une lettre : ");
@@ -108,7 +121,9 @@ public class NiveauUn {
         isVowelOrConsonant(c);
     }
 
+    // TODO javadoc
     public static void doYouHaveEnuff() {
+        // TODO fermeture scanner
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Entrez le montant sur votre compte bancaire : ");
@@ -117,15 +132,16 @@ public class NiveauUn {
         System.out.println("Entrez le prix du produit souhaité : ");
         double price = scanner.nextDouble();
 
-        if (bankSum > price) {
-            System.out.println("Vous pouvez acheter ! Il vous reste " + String.format("%.2f", (bankSum - price)) + " sur votre compte");
+        if (bankSum > price) { // et si y'a juste assez d'argent ?
+            System.out.println("Vous pouvez acheter ! Il vous reste " + String.format("%.2f", (bankSum - price))
+                    + " sur votre compte");
         } else {
             System.out.println("T'as pas de sous fréro");
         }
     }
 
-    public static void calculTauxParticipation() {
 
+    public static void calculTauxParticipation() {
 
         final double TAUX_CELIB = 20.0;
         final double TAUX_AUTRE = 25.0;
@@ -137,6 +153,10 @@ public class NiveauUn {
         Scanner scanner = new Scanner(System.in);
         String continuer;
 
+        // TODO java est sympa, il initialise automatiquement les variables avec des valeurs qui se tiennent (par exemple 0 pour un int)
+        // attention, d'autres langages ne le font pas par souci de performance (par exemple en C, tu déclares une variables et tu sais pas vraiment ce qu'il y a dedans)
+        // pour cette raison il est souhaitable d'initialiser les variables déclarées avec des valeurs
+        // Le motto : un variable déclarée est une variables initialisée.
         String statut;
         int nbEnfants;
         double salaire;
@@ -172,14 +192,14 @@ public class NiveauUn {
 
             System.out.print("Souhaitez-vous effectuer le calcul pour un autre employé ? (O/N) : ");
             continuer = scanner.next();
-        }
-        while (continuer.equalsIgnoreCase("O"));
-
+        } while (continuer.equalsIgnoreCase("O"));
 
         scanner.close();
         System.out.println("Fin du programme.");
     }
 
+    // TODO c'est toujours très éotnnant de voir que le code source Java peut prendre des accents
+    // conseil : ne pas en mettre, code en anglais préconisé
     public static void calculAbonnés() {
 
         int nbAbonnés = 2500;
@@ -190,10 +210,12 @@ public class NiveauUn {
             month += 1;
         }
 
+        // TODO retourner le "result" (pour le moment non utilisé)
         int result = (int) Math.round(nbAbonnés);
         System.out.println("Le nombre d'abonnés est de : " + nbAbonnés);
     }
 
+    // ✅okay
     public static int subscribersCount(int nbSbscribrs, double growth) {
 
         for (int mois = 0; mois < 24; mois++) {
@@ -206,6 +228,7 @@ public class NiveauUn {
 
     public static void sommeNb() {
 
+        // TODO fermeture scanner
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Entrez un nombre : ");
@@ -218,7 +241,7 @@ public class NiveauUn {
     }
 
     public static void fizzBuzzing() {
-
+        // TODO fermeture scanner
         Scanner scanner = new Scanner(System.in);
         System.out.println("Entrez un nombre : ");
         int n = scanner.nextInt();
@@ -238,7 +261,7 @@ public class NiveauUn {
     }
 
     public static long calculFactoriel(int n) {
-
+        // ✅judicieux choix de type
         long f = 1;
 
         for (int i = 1; i < n; i++) {
@@ -248,12 +271,13 @@ public class NiveauUn {
         return f;
     }
 
+    // ✅
     public static void tableauReel() {
-
-        double[] array = {12.2, 11.3, 4.4, 2.0};
+        double[] array = { 12.2, 11.3, 4.4, 2.0 };
         System.out.println(Arrays.toString(array));
     }
 
+    // ✅
     public static int rechercheFor(int[] array, int value) {
 
         for (int i = 0; i < array.length; i++) {
@@ -264,6 +288,7 @@ public class NiveauUn {
         return -1;
     }
 
+    // ✅
     public static int rechercheWhile(int[] array, int value) {
 
         int i = 0;
@@ -276,6 +301,7 @@ public class NiveauUn {
         return -1;
     }
 
+    // ✅
     public static int rechercheDoWhile(int[] array, int value) {
 
         int i = 0;
@@ -289,6 +315,7 @@ public class NiveauUn {
         return -1;
     }
 
+    // ✅
     public static int sommeIndex(int[] array, int i, int j) {
 
         int sum = 0;
@@ -298,6 +325,7 @@ public class NiveauUn {
         return sum;
     }
 
+    // ✅
     public static int[] findMinMaxIndexes(int[] array) {
 
         int[] arrayResult = new int[2];
@@ -314,14 +342,22 @@ public class NiveauUn {
             }
 
         }
+        // TODO possiblité d'intancier le tableau de la façon suivante :
+        // int[] result = new int[] { indexMin, indexMax };
+        // ceci permettra de gagner quelques lignes
+
         arrayResult[0] = indexMin;
         arrayResult[1] = indexMax;
 
         return arrayResult;
     }
 
+    // INFO : le paramètre "array" est modifié par la fonction
+    // ceci est souvent appelé un paramètre "d'entrée-sortie"
+    // On appelle aussi 
     public static boolean swap(int[] array, int i, int j) {
 
+        // ✅ principe de programmation défensive bien appliqué : on vérifie la valeur des paramètres
         if (array == null || i < 0 || j < 0 || i > array.length || j > array.length) {
             return false;
         }
@@ -357,7 +393,7 @@ public class NiveauUn {
             arrayToProcess[i] = scanner.nextInt();
         }
         double moyenne = calculerMoyenne(arrayToProcess);
-        System.out.println("Moyenne = " + (int) moyenne);  // ou garde en double si tu veux la virgule
+        System.out.println("Moyenne = " + (int) moyenne); // ou garde en double si tu veux la virgule
 
         // Trouver min et max
         int[] minMaxIndexes = findMinMaxIndexes(arrayToProcess);
@@ -392,6 +428,7 @@ public class NiveauUn {
         return sum;
     }
 
+    // TODO ajouter Javadoc pour expliquer type de diagonale
     public static int calculateDiagonal(int[][] array2D, int width, int height, int diagonalType) {
         int sum = 0;
         int i = 0;
@@ -419,6 +456,7 @@ public class NiveauUn {
         return sum;
     }
 
+    // ✅ okay
     public static void doCharTriangle() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Entrez le nombre de lignes désirées :");
@@ -445,7 +483,7 @@ public class NiveauUn {
     }
 
     public static void runPlusOuMoinsGame() {
-
+        // TODO fermer scanner
         Scanner scanner = new Scanner(System.in);
         // instanciation d'un objet de la classe Random
         Random r = new Random();
@@ -456,26 +494,21 @@ public class NiveauUn {
 
         System.out.println("Essayez de deviner le nombre secret entre 1 et 100 : ");
 
-
         for (int i = 0; i < nbTries; i++) {
             int userEntry = scanner.nextInt();
 
             if (userEntry < secretNumber) {
                 System.out.println("le nombre secret est plus grand");
+            } else if (userEntry < 0 || userEntry > 100) {
+                System.out.println("Le nombre entré n'est pas compris entre 1 et 100");
+                continue;
+            } else if (userEntry > secretNumber) {
+                System.out.println("le nombre secret est plus petit");
+            } else {
+                System.out.println("Vous avez trouvé le nombre secret !");
+                return;
             }
-                else if (userEntry < 0 || userEntry > 100) {
-                    System.out.println("Le nombre entré n'est pas compris entre 1 et 100");
-                    continue;
-                } else if (userEntry > secretNumber) {
-                    System.out.println("le nombre secret est plus petit");
-                } else {
-                    System.out.println("Vous avez trouvé le nombre secret !");
-                    return;
-                }
 
-            }
         }
     }
-
-
-
+}
