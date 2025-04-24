@@ -323,6 +323,7 @@ public class NiveauUn {
     public static boolean swap(int[] array, int i, int j) {
 
         if (array == null || i < 0 || j < 0 || i > array.length || j > array.length) {
+            System.out.println("FALSE");
             return false;
         }
 
@@ -330,6 +331,7 @@ public class NiveauUn {
         array[i] = array[j];
         array[j] = temp;
 
+        System.out.println("VRAI");
         return true;
     }
 

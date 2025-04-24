@@ -1,11 +1,13 @@
 package fr.afpa;
 
 import fr.afpa.exercices.NiveauUn;
+import fr.afpa.exercices.NiveauDeux;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
 import static fr.afpa.exercices.NiveauUn.*;
+import static fr.afpa.exercices.NiveauDeux.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -59,7 +61,29 @@ public class Main {
         //sumDiagonal(array2D,4,4,1);
 
         //doCharTriangle();
-        runPlusOuMoinsGame();
+        //runPlusOuMoinsGame();
+
+        //countVowels("SPJOIEHFKHOQIJSFOJEFPOJQFOJM");
+        //countUpperCases("QDJLQSFLKSNDFLHDIFHLQihhsdfljem");
+
+        //lowerToUpperCase("ozpeqldjlqjdlihailz");
+        //invertString("QJDsosipkmlklkm");
+        //convertToCamelCaseEZMode("Voici une phrase",' ');
+        //convertToCamelCaseHardMode("Voici une phrase", ' ');
+        //int[] result = localizeStringInString("Machin et truc","truc");
+        //System.out.println(result[0] + ", " + result[1]);
+        //System.out.println(binaireVersBase10EZMode("1011"));
+        //binaireVersBase10HardMode("O11101");
+        //System.out.println(nombreVersBinaire(68));
+        int[] tableau1 = {1, 3, 5};
+        int[] tableau2 = {2, 4, 6};
+
+        int[] resultat = fuseTables(tableau1, tableau2);
+
+
+
+
+
     }
 
 
