@@ -10,6 +10,12 @@ import java.util.Arrays;
  */
 public class NiveauDeux {
 
+    // ✅
+    // Au niveau de JavaDoc, donner les précisions concernant les paramètres
+    // d'entrée et les paramètres de retour.
+    // Ces informations vont permettre l'édition d'une doc technique de
+    // l'application, elle doit être précise, donc expliquer à quoi servent les
+    // paramètres d'entrée et à quoi correspond le retour
     /**
      * Count vowels int.
      *
@@ -37,6 +43,7 @@ public class NiveauDeux {
         return count;
     }
 
+    // ✅ nickel (sauf JavaDoc)
     /**
      * Count upper cases int.
      *
@@ -54,7 +61,7 @@ public class NiveauDeux {
         return count;
     }
 
-
+    // ✅
     /**
      * Lower to upper case string.
      *
@@ -78,6 +85,7 @@ public class NiveauDeux {
         return finalString;
     }
 
+    // ✅
     /**
      * Invert string string.
      *
@@ -90,6 +98,7 @@ public class NiveauDeux {
         char temp;
 
         for (int i = str.length() - 1; i >= 0; i--) {
+            // Peut être fait directement sans passer par une variable temporaire
             temp = str.charAt(i);
             result.append(temp);
         }
@@ -99,6 +108,7 @@ public class NiveauDeux {
         return finalString;
     }
 
+    // TODO Prendre en compte la ponctuation
     /**
      * Convert to camel case ez mode string.
      *
@@ -112,6 +122,7 @@ public class NiveauDeux {
         return str;
     }
 
+    // TODO Prendre en compte la ponctuation
     /**
      * Convert to camel case hard mode string.
      *
@@ -141,6 +152,7 @@ public class NiveauDeux {
         return result.toString();
     }
 
+    // Il serait intéressant d'écrire l'algorithme sans utliser la méthode indexOf
     /**
      * Localize string in string int [ ].
      *
@@ -152,11 +164,11 @@ public class NiveauDeux {
 
         int firstIndex = str.indexOf(search);
         if (firstIndex == -1) {
-            return new int[]{-1, -1};
+            return new int[] { -1, -1 };
         }
 
         int lastIndex = firstIndex + search.length() - 1;
-        return new int[] {firstIndex, lastIndex};
+        return new int[] { firstIndex, lastIndex };
     }
 
     /**
@@ -169,6 +181,7 @@ public class NiveauDeux {
         return Integer.parseInt(n, 2);
     }
 
+    // ✅ Okay
     /**
      * Binaire vers base 10 hard mode int.
      *
@@ -186,10 +199,10 @@ public class NiveauDeux {
             }
             puissance++;
         }
-        System.out.println(result);
         return result;
     }
 
+    // ✅ Okay
     /**
      * Nombre vers binaire string.
      *
@@ -211,6 +224,7 @@ public class NiveauDeux {
         return binaire.toString();
     }
 
+    // ✅ Nickel
     /**
      * Fuse tables int [ ].
      *
@@ -233,13 +247,12 @@ public class NiveauDeux {
             } else {
                 fusion[k++] = array2[j++];
             }
+            System.out.println(Arrays.toString(fusion));
         }
-
 
         while (i < n1) {
             fusion[k++] = array1[i++];
         }
-
 
         while (j < n2) {
             fusion[k++] = array2[j++];
@@ -248,6 +261,8 @@ public class NiveauDeux {
         return fusion;
     }
 
+    // L'idée ici est de ne pas utiliser les méthodes java qui font le travail pour
+    // toi
     /**
      * Est palindrome boolean.
      *
@@ -259,18 +274,17 @@ public class NiveauDeux {
         String sansAccents = Normalizer.normalize(texte, Normalizer.Form.NFD)
                 .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
 
-
         sansAccents = sansAccents.toLowerCase();
 
-
         String nettoie = sansAccents.replaceAll("[^a-z]", "");
-
 
         String inverse = new StringBuilder(nettoie).reverse().toString();
 
         return nettoie.equals(inverse);
     }
 
+    // ✅ Nickel
+    // TODO JavaDoc
     public static boolean validerCarte(long cardNumber) {
         String numero = String.valueOf(cardNumber);
         int somme = 0;
@@ -293,8 +307,3 @@ public class NiveauDeux {
         return somme % 10 == 0;
     }
 }
-
-
-
-
-
